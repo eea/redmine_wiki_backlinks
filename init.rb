@@ -1,4 +1,4 @@
-require 'wiki_links_hook_listener'
+require File.dirname(__FILE__) + '/lib/wiki_links_hook_listener'
 
 Rails.configuration.to_prepare do
   unless WikiContent.included_modules.include?(WikiLinksWikiContentPatch)
