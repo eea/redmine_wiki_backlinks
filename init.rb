@@ -14,11 +14,10 @@ end
 
 Redmine::Plugin.register :redmine_wiki_backlinks do
   name 'Redmine Wiki Backlinks plugin'
-  author 'Antonio Garcia-Dominguez'
+  author 'EEA'
   description 'Provides reports with backlinks, orphan pages and wanted pages for Redmine wikis'
-  version '0.0.2'
-  url 'http://github.com/bluezio/redmine_wiki_backlinks'
-  author_url 'http://neptuno.uca.es/~agarcia'
+  version '0.1.0'
+  url 'http://github.com/eea/redmine_wiki_backlinks'
 
   # Add the permission to the Wiki module
   project_module :wiki do
