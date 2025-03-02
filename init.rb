@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/lib/wiki_links_hook_listener'
 
-Rails.configuration.to_prepare do
+Rails.application.config.after_initialize do
   unless WikiContent.included_modules.include?(WikiLinksWikiContentPatch)
     WikiContent.send(:include, WikiLinksWikiContentPatch)
   end
