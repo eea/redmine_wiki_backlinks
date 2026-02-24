@@ -1,8 +1,6 @@
 require 'set'
 
 class WikiLinksController < ApplicationController
-  unloadable
-
   default_search_scope :wiki_pages
   menu_item :wiki
 

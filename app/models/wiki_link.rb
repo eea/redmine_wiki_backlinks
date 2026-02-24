@@ -3,8 +3,6 @@
 require 'set'
 
 class WikiLink < ActiveRecord::Base
-  unloadable
-
   belongs_to :wiki
   belongs_to :page, :class_name => 'WikiPage', :foreign_key => 'from_page_id'
 
