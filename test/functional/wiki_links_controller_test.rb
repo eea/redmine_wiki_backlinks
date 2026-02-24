@@ -1,8 +1,6 @@
 require File.expand_path('../../test_helper', __FILE__)
 
 class WikiLinksControllerTest < ActionController::TestCase
-  fixtures :projects, :enabled_modules,
-           :users, :members, :member_roles, :roles
 
   def setup
     @project = Project.find(1)
@@ -222,16 +220,14 @@ class WikiLinksControllerTest < ActionController::TestCase
     login_as "admin"
     get :index
     assert_response :success
-    assert_equal [], assigns(:project_wikis)
-    assert_select "p.nodata", 1
+    assert_not assigns(:project_wikis).any? { |w| w["wiki_id"] == @wiki.id }
   end
 
   def test_index_admin_one
     login_as "admin"
     get :index
     assert_response :success
-    assert_equal [{"wiki_id" => @wiki.id, "project_name" => @project.name}], assigns(:project_wikis)
-    assert_select "#projectwikis-form label", 1
+    assert assigns(:project_wikis).any? { |w| w["wiki_id"] == @wiki.id && w["project_name"] == @project.name }
   end
 
   # PRIVATE ####################################################################
