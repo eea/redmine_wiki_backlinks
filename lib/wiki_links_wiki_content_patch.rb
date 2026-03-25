@@ -5,8 +5,6 @@ module WikiLinksWikiContentPatch
   def self.included(base)
     base.send(:include, InstanceMethods)
     base.class_eval do
-      unloadable
-
       after_save :update_wiki_links
       after_destroy :remove_wiki_links
     end

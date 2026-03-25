@@ -5,8 +5,6 @@ module WikiLinksWikiPatch
   def self.included(base)
     base.send(:include, InstanceMethods)
     base.class_eval do
-      unloadable
-
       has_many :links, :class_name => 'WikiLink', :foreign_key => 'wiki_id'
       after_destroy :remove_wiki_links
     end
